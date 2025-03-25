@@ -1,8 +1,3 @@
-import js from "@eslint/js";
-import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-
 module.exports = {
 	env: { browser: true, es2020: true },
 	extends: [
