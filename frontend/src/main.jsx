@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 //import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/styles/bootstrap.custom.css";
+import "../src/assets/styles/index.css";
 import App from "./App.jsx";
 import HomeScreen from "./screens/HomeScreen.jsx";
 
