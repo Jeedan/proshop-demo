@@ -1,5 +1,5 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import products from "../products";
 import { Link } from "react-router-dom";
 import {
 	Card,
@@ -11,10 +11,24 @@ import {
 	ListGroupItem,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
+import axios from "axios";
 
 const ProductScreen = () => {
 	const { id: productId } = useParams();
-	const product = products.find((p) => p._id === productId);
+
+	const [product, setProduct] = useState([]);
+
+	//this was used when we used products.js
+	//const product = products.find((p) => p._id === productId);
+
+	useEffect(() => {
+		const fetchProduct = async () => {
+			const { data } = await axios.get(`/api/products/${productId}`);
+			setProduct(data);
+		};
+		// remember to call the function defined above
+		fetchProduct();
+	}, [productId]); // we want this to run when productId changes
 
 	return (
 		<>
